@@ -31,8 +31,11 @@ public class InterfaceEstudante {
         System.out.print("Matricula: ");
         matricula = scanner.nextInt();
 
+        // Consuma a quebra de linha pendente
+        scanner.nextLine();
+
         System.out.print("Nome: ");
-        nome = scanner.next();
+        nome = scanner.nextLine();
 
         System.out.print("Email: ");
         email = scanner.next();
@@ -40,8 +43,11 @@ public class InterfaceEstudante {
         System.out.print("Telefone: ");
         telefone = scanner.nextInt();
 
+        // Consuma a quebra de linha pendente
+        scanner.nextLine();
+
         System.out.print("Endereço Completo: ");
-        enderecoCompleto = scanner.next();
+        enderecoCompleto = scanner.nextLine();
 
         Estudante estudante = new Estudante(matricula, nome, email, telefone, enderecoCompleto);
         controladorEstudante.incluirEstudante(estudante);
