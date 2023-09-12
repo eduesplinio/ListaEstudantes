@@ -1,5 +1,3 @@
-package Estudande;
-
 import java.util.ArrayList;
 
 public class ControladorEstudante {
@@ -17,10 +15,21 @@ public class ControladorEstudante {
         estudantes.remove(estudante);
     }
 
-    public localizarEstudantePorNome(String nome) {
+    public Estudante localizarEstudantePorNome(String nome) {
         Estudante estudante = null;
         for (int i = 0; i < estudantes.size(); i++) {
             if (estudantes.get(i).obterNome().equals(nome)) {
+                estudante = estudantes.get(i);
+                break;
+            }
+        }
+        return estudante;
+    }
+
+    public Estudante localizarEstudantePorMatricula(int matricula) {
+        Estudante estudante = null;
+        for (int i = 0; i < estudantes.size(); i++) {
+            if (estudantes.get(i).obterMatricula() == matricula) {
                 estudante = estudantes.get(i);
                 break;
             }
