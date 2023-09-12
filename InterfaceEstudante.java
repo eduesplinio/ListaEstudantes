@@ -48,21 +48,41 @@ public class InterfaceEstudante {
     }
 
     private void localizarEstudante() {
-        String nome;
+        int opcaoLocalizacao;
+        System.out.println("Como você deseja localizar o estudante?");
+        System.out.println("1 - Por Nome");
+        System.out.println("2 - Por Matrícula");
+        System.out.print("Opção: ");
+        opcaoLocalizacao = scanner.nextInt();
 
-        System.out.print("Informe o nome do estudante: ");
-        nome = scanner.next();
-
-        Estudante estudante = controladorEstudante.localizarEstudantePorNome(nome);
-        if (estudante != null) {
-            System.out.println("Estudante\n" +
-                    "Nome: " + estudante.obterNome() + "\n" +
-                    "Matricula: " + estudante.obterMatricula() + "\n" +
-                    "Email: " + estudante.obterEmail() + "\n" +
-                    "Telefone: " + estudante.obterTelefone() + "\n" +
-                    "Endereço Completo: " + estudante.obterEnderecoCompleto());
+        if (opcaoLocalizacao == 1) {
+            // Localizar por Nome
+            String nome;
+            System.out.print("Informe o nome do estudante: ");
+            nome = scanner.next();
+            Estudante estudante = controladorEstudante.localizarEstudantePorNome(nome);
+            if (estudante != null) {
+                System.out.println("Estudante encontrado por nome:");
+                System.out.println("Nome: " + estudante.obterNome());
+                System.out.println("Matrícula: " + estudante.obterMatricula());
+            } else {
+                System.out.println("Estudante não encontrado.");
+            }
+        } else if (opcaoLocalizacao == 2) {
+            // Localizar por Matrícula
+            int matricula;
+            System.out.print("Informe a matrícula do estudante: ");
+            matricula = scanner.nextInt();
+            Estudante estudante = controladorEstudante.localizarEstudantePorMatricula(matricula);
+            if (estudante != null) {
+                System.out.println("Estudante encontrado por matrícula:");
+                System.out.println("Nome: " + estudante.obterNome());
+                System.out.println("Matrícula: " + estudante.obterMatricula());
+            } else {
+                System.out.println("Estudante não encontrado.");
+            }
         } else {
-            System.out.println("Estudante não encontrado.");
+            System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
         }
     }
 
